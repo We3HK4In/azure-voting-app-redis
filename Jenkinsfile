@@ -35,7 +35,7 @@ pipeline {
             echo "Runnning in $WORKSPACE"
             dir("$WORKSPACE/azure-vote") {
                script {
-                  docker.withRegistry('', 'dockerhub') {
+                  docker.withRegistry('', 'docker-creds') {
                      def image = docker.build('d0ckbl0cker/wtv-repo')
                      image.push()
                   }
